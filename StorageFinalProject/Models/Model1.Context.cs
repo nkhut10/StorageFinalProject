@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject
+namespace StorageFinalProject.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class warehouse_dbEntities : DbContext
+    public partial class warehouse_dbEntities1 : DbContext
     {
-        public warehouse_dbEntities()
-            : base("name=warehouse_dbEntities")
+        public warehouse_dbEntities1()
+            : base("name=warehouse_dbEntities1")
         {
         }
     
@@ -25,5 +25,6 @@ namespace StorageFinalProject
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<test> test { get; set; }
     }
 }
