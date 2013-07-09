@@ -7,12 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject
+namespace StorageFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class WarehouseProduct
+    public partial class WarehouseProducts
     {
         public int WarehouseID { get; set; }
         public int ProductID { get; set; }

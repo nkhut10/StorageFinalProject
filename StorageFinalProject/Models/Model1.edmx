@@ -77,13 +77,13 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinalProjectModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="FinalProjectEntities" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="FinalProjectModel.Category" />
-          <EntitySet Name="Employees" EntityType="FinalProjectModel.Employee" />
-          <EntitySet Name="ProductTypes" EntityType="FinalProjectModel.ProductType" />
-          <EntitySet Name="Sales" EntityType="FinalProjectModel.Sale" />
-          <EntitySet Name="WarehouseProducts" EntityType="FinalProjectModel.WarehouseProduct" />
-          <EntitySet Name="Warehouses" EntityType="FinalProjectModel.Warehouse" />
+        <EntityContainer Name="FinalProjectEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Category" EntityType="FinalProjectModel.Category" />
+          <EntitySet Name="Employees" EntityType="FinalProjectModel.Employees" />
+          <EntitySet Name="ProductType" EntityType="FinalProjectModel.ProductType" />
+          <EntitySet Name="Sales" EntityType="FinalProjectModel.Sales" />
+          <EntitySet Name="WarehouseProducts" EntityType="FinalProjectModel.WarehouseProducts" />
+          <EntitySet Name="Warehouses" EntityType="FinalProjectModel.Warehouses" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -94,7 +94,7 @@
           <Property Name="description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
           <Property Name="status" Type="Byte" Nullable="false" />
         </EntityType>
-        <EntityType Name="Employee">
+        <EntityType Name="Employees">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -114,7 +114,7 @@
           <Property Name="price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="status" Type="Byte" Nullable="false" />
         </EntityType>
-        <EntityType Name="Sale">
+        <EntityType Name="Sales">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -124,7 +124,7 @@
           <Property Name="WarehouseID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="WarehouseProduct">
+        <EntityType Name="WarehouseProducts">
           <Key>
             <PropertyRef Name="WarehouseID" />
           </Key>
@@ -132,7 +132,7 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityType Name="Warehouse">
+        <EntityType Name="Warehouses">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -149,8 +149,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FinalProjectModelStoreContainer" CdmEntityContainer="FinalProjectEntities">
-          <EntitySetMapping Name="Categories">
+        <EntityContainerMapping StorageEntityContainer="FinalProjectModelStoreContainer" CdmEntityContainer="FinalProjectEntities1">
+          <EntitySetMapping Name="Category">
             <EntityTypeMapping TypeName="FinalProjectModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -161,7 +161,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="FinalProjectModel.Employee">
+            <EntityTypeMapping TypeName="FinalProjectModel.Employees">
               <MappingFragment StoreEntitySet="Employees">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
@@ -170,7 +170,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProductTypes">
+          <EntitySetMapping Name="ProductType">
             <EntityTypeMapping TypeName="FinalProjectModel.ProductType">
               <MappingFragment StoreEntitySet="ProductType">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -183,7 +183,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sales">
-            <EntityTypeMapping TypeName="FinalProjectModel.Sale">
+            <EntityTypeMapping TypeName="FinalProjectModel.Sales">
               <MappingFragment StoreEntitySet="Sales">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -194,7 +194,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WarehouseProducts">
-            <EntityTypeMapping TypeName="FinalProjectModel.WarehouseProduct">
+            <EntityTypeMapping TypeName="FinalProjectModel.WarehouseProducts">
               <MappingFragment StoreEntitySet="WarehouseProducts">
                 <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -203,7 +203,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Warehouses">
-            <EntityTypeMapping TypeName="FinalProjectModel.Warehouse">
+            <EntityTypeMapping TypeName="FinalProjectModel.Warehouses">
               <MappingFragment StoreEntitySet="Warehouses">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -231,7 +231,6 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
-        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

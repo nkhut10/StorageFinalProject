@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject
+namespace StorageFinalProject.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Employees
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public byte status { get; set; }
+        public int ID { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public Nullable<int> Status { get; set; }
     }
 }
