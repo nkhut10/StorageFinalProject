@@ -7,7 +7,6 @@
     <Schema Namespace="FinalProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="FinalProjectModelStoreContainer">
           <EntitySet Name="Category" EntityType="FinalProjectModel.Store.Category" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Employees" EntityType="FinalProjectModel.Store.Employees" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ProductType" EntityType="FinalProjectModel.Store.ProductType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Warehouses" EntityType="FinalProjectModel.Store.Warehouses" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
@@ -19,15 +18,6 @@
           <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="150" />
           <Property Name="description" Type="nvarchar" MaxLength="300" />
           <Property Name="status" Type="tinyint" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Employees">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="100" />
-          <Property Name="Status" Type="int" />
         </EntityType>
         <EntityType Name="ProductType">
           <Key>
@@ -60,7 +50,6 @@
           <EntitySet Name="Categories" EntityType="FinalProjectModel.Category" />
           <EntitySet Name="ProductTypes" EntityType="FinalProjectModel.ProductType" />
           <EntitySet Name="Warehouses" EntityType="FinalProjectModel.Warehouse" />
-          <EntitySet Name="Employees" EntityType="FinalProjectModel.Employee" />
         </EntityContainer>
         <EntityType Name="Category">
           <Key>
@@ -93,15 +82,6 @@
           <Property Name="open_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="close_date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="status" Type="Byte" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Username" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Password" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="Status" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -141,16 +121,6 @@
                 <ScalarProperty Name="open_date" ColumnName="open_date" />
                 <ScalarProperty Name="close_date" ColumnName="close_date" />
                 <ScalarProperty Name="status" ColumnName="status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="FinalProjectModel.Employee">
-              <MappingFragment StoreEntitySet="Employees">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
