@@ -1,0 +1,43 @@
+﻿@model List<StorageFinalProject.Models.Category>
+
+@{
+    ViewBag.Title = "Category";
+    
+
+    
+}
+
+<h2>Category</h2>
+
+@Html.ActionLink("ახლის დამატება", "Create")
+
+<table style="border : 2px solid red">
+    <tr>
+        <td>
+            დასახელება
+        </td>
+        <td>
+            აღწერა
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+
+            <td>
+            @Html.ActionLink("გაუქმება", "Disable", new { id = item.id })
+            </td>
+            <td>
+                @Html.ActionLink("წაშლა", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+</table>
