@@ -16,7 +16,7 @@ namespace StorageFinalProject.Controllers
 
         public ActionResult Index()
         {
-            
+
             return View();
         }
 
@@ -31,10 +31,10 @@ namespace StorageFinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (true)
+                if (db.Employees.Any(p => p.Username.Equals(user.UserName) && p.Password.Equals(user.Password)))
                 {
                     FormsAuthentication.SetAuthCookie(user.UserName, user.RememberMe);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Category", "StorageOperator");
                 }
                 else
                 {
