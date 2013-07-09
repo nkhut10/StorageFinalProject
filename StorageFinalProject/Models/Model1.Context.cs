@@ -13,10 +13,10 @@ namespace StorageFinalProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class warehouse_dbEntities1 : DbContext
+    public partial class FinalProjectEntities : DbContext
     {
-        public warehouse_dbEntities1()
-            : base("name=warehouse_dbEntities1")
+        public FinalProjectEntities()
+            : base("name=FinalProjectEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace StorageFinalProject.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<test> test { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

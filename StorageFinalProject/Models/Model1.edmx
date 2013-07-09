@@ -4,43 +4,84 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="warehouse_dbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="warehouse_dbModelStoreContainer">
-          <EntitySet Name="test" EntityType="warehouse_dbModel.Store.test" store:Type="Tables" Schema="dbo" />
+    <Schema Namespace="FinalProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="FinalProjectModelStoreContainer">
+          <EntitySet Name="Category" EntityType="FinalProjectModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Type" EntityType="FinalProjectModel.Store.Type" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
-        <EntityType Name="test">
+        <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="test" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="test" Type="nchar" Nullable="false" MaxLength="10" />
-          <Property Name="asd" Type="nchar" MaxLength="10" />
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="description" Type="nvarchar" MaxLength="300" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="description" Type="nvarchar" MaxLength="300" />
+          <Property Name="categoryId" Type="int" Nullable="false" />
+          <Property Name="price" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="status" Type="tinyint" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="warehouse_dbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="warehouse_dbEntities1" p1:LazyLoadingEnabled="true">
-          <EntitySet Name="test" EntityType="warehouse_dbModel.test" />
+      <Schema Namespace="FinalProjectModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FinalProjectEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="FinalProjectModel.Category" />
+          <EntitySet Name="Types" EntityType="FinalProjectModel.Type" />
         </EntityContainer>
-        <EntityType Name="test">
+        <EntityType Name="Category">
           <Key>
-            <PropertyRef Name="test1" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="test1" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
-          <Property Name="asd" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="status" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="categoryId" Nullable="false" />
+          <Property Type="Decimal" Name="price" Nullable="false" Precision="10" Scale="2" />
+          <Property Type="Byte" Name="status" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="warehouse_dbModelStoreContainer" CdmEntityContainer="warehouse_dbEntities1">
-          <EntitySetMapping Name="test">
-            <EntityTypeMapping TypeName="warehouse_dbModel.test">
-              <MappingFragment StoreEntitySet="test">
-                <ScalarProperty Name="test1" ColumnName="test" />
-                <ScalarProperty Name="asd" ColumnName="asd" />
+        <EntityContainerMapping StorageEntityContainer="FinalProjectModelStoreContainer" CdmEntityContainer="FinalProjectEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="FinalProjectModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="FinalProjectModel.Type">
+              <MappingFragment StoreEntitySet="Type">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -58,7 +99,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
