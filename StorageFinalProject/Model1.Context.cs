@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject.Models
+namespace StorageFinalProject
 {
     using System;
     using System.Data.Entity;
@@ -28,6 +28,8 @@ namespace StorageFinalProject.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<Sale> Sales { get; set; }
+        public DbSet<WarehouseProduct> WarehouseProducts { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
     }
 }

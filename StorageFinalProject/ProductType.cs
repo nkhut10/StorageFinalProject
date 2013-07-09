@@ -7,16 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject.Models
+namespace StorageFinalProject
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class ProductType
     {
-        public int ID { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public Nullable<int> Status { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public int categoryId { get; set; }
+        public decimal price { get; set; }
+        public byte status { get; set; }
     }
 }

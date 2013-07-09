@@ -7,19 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject.Models
+namespace StorageFinalProject
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Warehouse
+    public partial class WarehouseProduct
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public string address { get; set; }
-        public System.DateTime open_date { get; set; }
-        public System.DateTime close_date { get; set; }
-        public byte status { get; set; }
+        public int WarehouseID { get; set; }
+        public int ProductID { get; set; }
+        public int Quantity { get; set; }
     }
 }

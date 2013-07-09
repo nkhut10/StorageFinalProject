@@ -7,18 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageFinalProject.Models
+namespace StorageFinalProject
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductType
+    public partial class Category
     {
         public int id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public int categoryId { get; set; }
-        public decimal price { get; set; }
         public byte status { get; set; }
     }
 }

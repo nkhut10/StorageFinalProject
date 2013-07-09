@@ -23,6 +23,8 @@ GO
 
 ALTER TABLE [dbo].[Category] ADD  CONSTRAINT [DF_Category_status]  DEFAULT ((0)) FOR [status]
 GO
+
+
 USE [FinalProject]
 GO
 
@@ -88,3 +90,53 @@ Password Varchar(100),
 Status int
 PRIMARY KEY(ID)
 );
+
+
+USE [FinalProject]
+GO
+
+/****** Object:  Table [dbo].[Sales]    Script Date: 10.07.2013 0:03:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Sales](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeID] [int] NOT NULL,
+	[Date] [date] NOT NULL,
+	[WarehouseID] [int] NOT NULL,
+	[Quantity] [int] NOT NULL,
+ CONSTRAINT [PK_Sales] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+USE [FinalProject]
+GO
+
+/****** Object:  Table [dbo].[WarehouseProducts]    Script Date: 10.07.2013 0:04:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[WarehouseProducts](
+	[WarehouseID] [int] IDENTITY(1,1) NOT NULL,
+	[ProductID] [int] NOT NULL,
+	[Quantity] [int] NOT NULL,
+ CONSTRAINT [PK_WarehouseProducts] PRIMARY KEY CLUSTERED 
+(
+	[WarehouseID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
