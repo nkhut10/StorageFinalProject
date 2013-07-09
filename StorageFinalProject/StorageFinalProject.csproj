@@ -174,7 +174,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Employees.cs">
+    <Compile Include="Models\Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
@@ -195,13 +195,13 @@
     <Compile Include="Models\ProductType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sales.cs">
+    <Compile Include="Models\Sale.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\WarehouseProducts.cs">
+    <Compile Include="Models\Warehouse.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Warehouses.cs">
+    <Compile Include="Models\WarehouseProduct.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

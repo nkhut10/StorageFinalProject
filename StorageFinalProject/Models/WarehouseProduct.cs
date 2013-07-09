@@ -12,12 +12,10 @@ namespace StorageFinalProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Sales
+    public partial class WarehouseProduct
     {
-        public int ID { get; set; }
-        public int EmployeeID { get; set; }
-        public System.DateTime Date { get; set; }
         public int WarehouseID { get; set; }
+        public int ProductID { get; set; }
         public int Quantity { get; set; }
     }
 }

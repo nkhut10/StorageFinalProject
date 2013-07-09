@@ -12,7 +12,7 @@ namespace StorageFinalProject.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employees
+    public partial class Employee
     {
         public int ID { get; set; }
         public string Username { get; set; }
