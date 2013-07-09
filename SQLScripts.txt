@@ -78,3 +78,13 @@ GO
 
 ALTER TABLE [dbo].[Warehouses] ADD  CONSTRAINT [DF_Warehouses_status]  DEFAULT ((0)) FOR [status]
 GO
+
+use FinalProject;
+
+create table Employees(
+ID int IDENTITY,
+Username Varchar(50),
+Password Varchar(100),
+Status int
+PRIMARY KEY(ID)
+);
