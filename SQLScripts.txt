@@ -1,0 +1,80 @@
+USE [FinalProject]
+GO
+
+/****** Object:  Table [dbo].[Category]    Script Date: 09.07.2013 21:34:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Category](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](150) NOT NULL,
+	[description] [nvarchar](300) NULL,
+	[status] [tinyint] NOT NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Category] ADD  CONSTRAINT [DF_Category_status]  DEFAULT ((0)) FOR [status]
+GO
+USE [FinalProject]
+GO
+
+/****** Object:  Table [dbo].[Type]    Script Date: 09.07.2013 21:35:08 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Type](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](150) NOT NULL,
+	[description] [nvarchar](300) NULL,
+	[categoryId] [int] NOT NULL,
+	[price] [numeric](10, 2) NOT NULL,
+	[status] [tinyint] NOT NULL,
+ CONSTRAINT [PK_Type] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Type] ADD  CONSTRAINT [DF_Type_status]  DEFAULT ((0)) FOR [status]
+GO
+USE [FinalProject]
+GO
+
+/****** Object:  Table [dbo].[Warehouses]    Script Date: 07/09/2013 22:21:43 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Warehouses](
+	[id] [int] NOT NULL,
+	[name] [nvarchar](150) NOT NULL,
+	[description] [nvarchar](300) NULL,
+	[address] [nvarchar](150) NOT NULL,
+	[open_date] [date] NOT NULL,
+	[close_date] [date] NOT NULL,
+	[status] [tinyint] NOT NULL,
+ CONSTRAINT [PK_Warehouses] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[Warehouses] ADD  CONSTRAINT [DF_Warehouses_status]  DEFAULT ((0)) FOR [status]
+GO
