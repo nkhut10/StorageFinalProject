@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="193be343801a4df9937d9084bd3c4343" Name="Diagram1">
+      <Diagram DiagramId="8d1e4efa1b28490b8075b6f9923557c7" Name="Diagram1">
         <EntityTypeShape EntityType="FinalProjectModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinalProjectModel.ProductType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinalProjectModel.Warehouse" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FinalProjectModel.Employee" Width="1.5" PointX="7.25" PointY="0.75" />
+        <EntityTypeShape EntityType="FinalProjectModel.Employee" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.ProductType" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel.Warehouse" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
