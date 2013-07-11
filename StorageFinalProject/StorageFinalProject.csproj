@@ -168,6 +168,7 @@
     <Compile Include="Controllers\ShopOperatorController.cs" />
     <Compile Include="Controllers\StorageOperatorController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\WarehouseController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -344,6 +345,11 @@
     <Content Include="Views\ShopOperator\ShowMenu.cshtml" />
     <Content Include="Views\ShopOperator\Sales.cshtml" />
     <Content Include="Views\ShopOperator\History.cshtml" />
+    <Content Include="Views\Warehouse\Index.cshtml" />
+    <Content Include="Views\Warehouse\Details.cshtml" />
+    <Content Include="Views\Warehouse\Create.cshtml" />
+    <Content Include="Views\Warehouse\Edit.cshtml" />
+    <Content Include="Views\Warehouse\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
