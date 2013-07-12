@@ -56,8 +56,9 @@
         </EntityType>
         <EntityType Name="WarehouseProducts">
           <Key>
-            <PropertyRef Name="WarehouseID" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="WarehouseID" Type="int" Nullable="false" />
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="ProductTypeID" Type="int" Nullable="false" />
@@ -131,8 +132,9 @@
         </EntityType>
         <EntityType Name="WarehouseProduct">
           <Key>
-            <PropertyRef Name="WarehouseID" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="WarehouseID" Type="Int32" Nullable="false" />
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="ProductTypeID" Type="Int32" Nullable="false" />
@@ -204,6 +206,7 @@
           <EntitySetMapping Name="WarehouseProducts">
             <EntityTypeMapping TypeName="FinalProjectModel.WarehouseProduct">
               <MappingFragment StoreEntitySet="WarehouseProducts">
+                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />

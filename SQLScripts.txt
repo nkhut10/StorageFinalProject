@@ -1,7 +1,7 @@
 USE [FinalProject]
 GO
 
-/****** Object:  Table [dbo].[Category]    Script Date: 09.07.2013 21:34:15 ******/
+/****** Object:  Table [dbo].[Category]    Script Date: 13.07.2013 0:43:30 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -25,10 +25,13 @@ ALTER TABLE [dbo].[Category] ADD  CONSTRAINT [DF_Category_status]  DEFAULT ((0))
 GO
 
 
+
+
+
 USE [FinalProject]
 GO
 
-/****** Object:  Table [dbo].[ProductType]    Script Date: 09.07.2013 21:35:08 ******/
+/****** Object:  Table [dbo].[ProductType]    Script Date: 13.07.2013 0:43:54 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -52,10 +55,13 @@ GO
 
 ALTER TABLE [dbo].[ProductType] ADD  CONSTRAINT [DF_ProductType_status]  DEFAULT ((0)) FOR [status]
 GO
+
+
+
 USE [FinalProject]
 GO
 
-/****** Object:  Table [dbo].[Warehouses]    Script Date: 07/09/2013 22:21:43 ******/
+/****** Object:  Table [dbo].[Warehouses]    Script Date: 13.07.2013 0:45:03 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -63,39 +69,61 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Warehouses](
-	[id] [int] NOT NULL,
+	[WarehouseID] [int] IDENTITY(1,1) NOT NULL,
 	[name] [nvarchar](150) NOT NULL,
 	[description] [nvarchar](300) NULL,
 	[address] [nvarchar](150) NOT NULL,
 	[open_date] [date] NOT NULL,
-	[close_date] [date] NOT NULL,
+	[close_date] [date] NULL,
 	[status] [tinyint] NOT NULL,
  CONSTRAINT [PK_Warehouses] PRIMARY KEY CLUSTERED 
 (
-	[id] ASC
-)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+	[WarehouseID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
 
-ALTER TABLE [dbo].[Warehouses] ADD  CONSTRAINT [DF_Warehouses_status]  DEFAULT ((0)) FOR [status]
-GO
 
-use FinalProject;
-
-create table Employees(
-ID int IDENTITY,
-Username Varchar(50),
-Password Varchar(100),
-Status int
-PRIMARY KEY(ID)
-);
 
 
 USE [FinalProject]
 GO
 
-/****** Object:  Table [dbo].[Sales]    Script Date: 10.07.2013 0:03:15 ******/
+/****** Object:  Table [dbo].[Employees]    Script Date: 13.07.2013 0:45:31 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Employees](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](50) NULL,
+	[Password] [varchar](100) NULL,
+	[Status] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+
+USE [FinalProject]
+GO
+
+/****** Object:  Table [dbo].[Sales]    Script Date: 13.07.2013 0:45:49 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -105,9 +133,11 @@ GO
 CREATE TABLE [dbo].[Sales](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[EmployeeID] [int] NOT NULL,
+	[CategoryID] [int] NOT NULL,
+	[ProductTypeID] [int] NOT NULL,
 	[Date] [date] NOT NULL,
-	[WarehouseID] [int] NOT NULL,
 	[Quantity] [int] NOT NULL,
+	[WarehouseID] [int] NOT NULL,
  CONSTRAINT [PK_Sales] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -117,10 +147,12 @@ CREATE TABLE [dbo].[Sales](
 GO
 
 
+
+
 USE [FinalProject]
 GO
 
-/****** Object:  Table [dbo].[WarehouseProducts]    Script Date: 10.07.2013 0:04:07 ******/
+/****** Object:  Table [dbo].[WarehouseProducts]    Script Date: 13.07.2013 0:46:06 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -128,15 +160,20 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[WarehouseProducts](
-	[WarehouseID] [int] IDENTITY(1,1) NOT NULL,
-	[ProductID] [int] NOT NULL,
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[WarehouseID] [int] NOT NULL,
+	[CategoryID] [int] NOT NULL,
+	[ProductTypeID] [int] NOT NULL,
 	[Quantity] [int] NOT NULL,
  CONSTRAINT [PK_WarehouseProducts] PRIMARY KEY CLUSTERED 
 (
-	[WarehouseID] ASC
+	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
+
+
+
 
 

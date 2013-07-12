@@ -1,0 +1,47 @@
+﻿@model StorageFinalProject.Models.SaleForm
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("CheckInfo", "ShopOperator"))
+{
+    @Html.ValidationSummary(true, "ოპერაცია ვერ განხორციელდა, შეამოწმეთ მოანცემები.");
+    <div>
+        <fieldset>
+            <legend>Login</legend>
+            <div class="editor-label">
+                @Html.LabelFor(s => s.Category)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(s => s.Category)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(s => s.ProductType)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(s => s.ProductType)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(s => s.WarehouseID)
+            </div>
+             <div class="editor-field">
+                @Html.TextBoxFor(s => s.WarehouseID)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(s => s.Price)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(s => s.Price, new { @readonly="readonly" })
+             </div>
+            <div class="editor-label">
+                @Html.LabelFor(s => s.Quantity)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(s => s.Quantity, new { @readonly="readonly" })
+             </div>
+            <input type="submit" value="ბაზაში დამატება" />
+        </fieldset>
+    </div>
+}

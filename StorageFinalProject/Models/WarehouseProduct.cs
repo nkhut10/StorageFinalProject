@@ -14,6 +14,7 @@ namespace StorageFinalProject.Models
     
     public partial class WarehouseProduct
     {
+        public int ID { get; set; }
         public int WarehouseID { get; set; }
         public int CategoryID { get; set; }
         public int ProductTypeID { get; set; }

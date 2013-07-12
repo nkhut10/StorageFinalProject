@@ -20,5 +20,11 @@ namespace StorageFinalProject.Models
         [Display(Name = "საწყობის ნომერი")]
         public bool WarehouseID { get; set; }
 
+        [Display(Name = "ერთეულის ფასი")]
+        public bool Price { get; set; }
+
+        [Display(Name = "რაოდენობა საწყობში")]
+        public bool Quantity { get; set; }
+
     }
 }
