@@ -26,5 +26,25 @@ namespace StorageFinalProject.Controllers
         }
 
 
+        [HttpPost]
+        public ActionResult AddCategory(HttpPostedFileBase name, HttpPostedFileBase description)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            else
+            {
+
+            }
+            Category ct = new Category();
+            ct.name = name.ToString();
+            ct.description = description.ToString();
+            db.Categories.Add(ct);
+            db.SaveChanges();
+            return View();
+        }
+
+
     }
 }

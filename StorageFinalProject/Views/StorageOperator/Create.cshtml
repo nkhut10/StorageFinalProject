@@ -1,7 +1,7 @@
 ﻿@model StorageFinalProject.Models.Category
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Add category";
 }
 
 <hgroup class="title">
@@ -9,8 +9,9 @@
 </hgroup>
 
 <section id="loginForm">
-<h2>Use a local account to log in.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+<h2>Enter name and description of a category.</h2>
+@using (Html.BeginForm("AddCategory","StorageOperator", FormMethod.Post))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -24,16 +25,13 @@
             </li>
             <li>
                 @Html.LabelFor(m => m.description)
-                @Html.PasswordFor(m => m.description)
+                @Html.TextAreaFor(m => m.description)
                 @Html.ValidationMessageFor(m => m.description)
             </li>
             
         </ol>
-        <input type="submit" value="Log in" />
+        <input type="submit" value="Add category" />
     </fieldset>
-    <p>
-        @Html.ActionLink("Register", "Register") if you don't have an account.
-    </p>
 }
 </section>
 
