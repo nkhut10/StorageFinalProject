@@ -16,8 +16,10 @@ namespace StorageFinalProject.Models
     {
         public int ID { get; set; }
         public int EmployeeID { get; set; }
+        public int CategoryID { get; set; }
+        public int ProductTypeID { get; set; }
         public System.DateTime Date { get; set; }
-        public int WarehouseID { get; set; }
         public int Quantity { get; set; }
+        public int WarehouseID { get; set; }
     }
 }

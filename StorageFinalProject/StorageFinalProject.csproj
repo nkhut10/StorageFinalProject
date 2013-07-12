@@ -350,6 +350,7 @@
     <Content Include="Views\Warehouse\Create.cshtml" />
     <Content Include="Views\Warehouse\Edit.cshtml" />
     <Content Include="Views\Warehouse\Delete.cshtml" />
+    <Content Include="Views\ShopOperator\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

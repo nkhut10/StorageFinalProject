@@ -14,12 +14,12 @@ namespace StorageFinalProject.Models
     
     public partial class Warehouse
     {
-        public int id { get; set; }
+        public int WarehouseID { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string address { get; set; }
         public System.DateTime open_date { get; set; }
-        public System.DateTime close_date { get; set; }
+        public Nullable<System.DateTime> close_date { get; set; }
         public byte status { get; set; }
     }
 }
